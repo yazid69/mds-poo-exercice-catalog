@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+
     <title>{{ $movie ->primaryTitle }}</title>
 
     <style>
@@ -20,6 +23,7 @@
 </head>
 
 <body>
+
     <a>Mon film numéro : {{$movie->id}}</a>
     <h1>{{ $movie->primaryTitle}}</h1>
     <div class="container">
