@@ -27,9 +27,10 @@
                     </tr>
                 </table>
             </a>
+            @endforeach
         </div>
-        @endforeach
 
+        {{$movies->links()}}
     </div>
 </body>
 
@@ -37,6 +38,22 @@
     .container {
         margin: auto;
         max-width: 900px;
+    }
+
+    .pagination {
+        display: inline-block;
+        display: flex;
+        list-style: none;
+        margin: auto;
+        justify-content: center;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+
+
+    }
+
+    .pagination li {
+        margin: 5px;
     }
 </style>
 
