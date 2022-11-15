@@ -15,12 +15,12 @@ class MovieController extends Controller
 
         $order_by = $request->query('order_by');
         $order = $request->query('order');
-        $genre = $request->query('gennre');
+        $genre = $request->query('genre');
+
+        $query = Movie::query();
 
         if ($order_by && $order) {
-            $movies = Movie::orderBy($order_by, $order)->paginate(20);
-        } else {
-            $movies = Movie::paginate(20);
+            $query->orderBy($order_by, $order);
         }
 
 
@@ -31,19 +31,12 @@ class MovieController extends Controller
         if (request('genre')) {
             $genre = Genre::where('label', $genre)->first();
             $genre_id = $genre->id;
-            $movies = Movie::whereHas('genres', function (Builder $movieQuery) use ($genre_id) {
+            $query->whereHas('genres', function (Builder $movieQuery) use ($genre_id) {
                 $movieQuery->where('genre_id', $genre_id);
             });
         }
 
-        if (request('genre') || request('order_by')) {
-            $movies = $movies->simplePaginate(20);
-        } else {
-            $movies = $movies->simplePaginate(20);
-        }
-
-
-
+        $movies = $query->paginate(20);
 
         return view('movies', ['movies' => $movies]);
     }

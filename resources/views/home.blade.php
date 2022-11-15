@@ -31,8 +31,8 @@
         <h3><a href="{{ route('list.movies')}}"> Top 20 films</a></h3>
 
         <h3><a href="{{route('random.movie')}}">Random Movies</a></h3>
-
         <h3><a href="{{route('list.genres')}}">Genre Movies</a></h3>
+
 
 
 
@@ -45,6 +45,17 @@
             </div>
             @endforeach
         </div>
+    </div>
+
+    <div class="wrapper">
+        @foreach ($series as $series)
+        <div>
+            <a href="/series/{{ $serie->id }}">
+                <img src="{{ $series->poster }}" alt="{{ $series->primaryTitle }}">
+            </a>
+        </div>
+        @endforeach
+    </div>
     </div>
 </body>
 
