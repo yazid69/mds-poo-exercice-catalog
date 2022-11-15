@@ -32,6 +32,9 @@
 
         <h3><a href="{{route('random.movie')}}">Random Movies</a></h3>
 
+        <h3><a href="{{route('list.genres')}}">Genre Movies</a></h3>
+
+
 
         <div class="wrapper">
             @foreach ($movies as $movie)
