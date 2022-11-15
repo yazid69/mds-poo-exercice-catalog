@@ -40,8 +40,9 @@
         <h3>Date de sortie : {{$movie->startYear}}</h3>
         <h3>Durée du film : {{ $movie->runtimeMinutes }} minutes.</h3>
         <h3>{{ $movie ->plot }}</h3>
-        <h3>Note sur 20 : {{ $movie->averageRating}}</h3>
+        <h3>Note sur 10 : {{ $movie->averageRating}}</h3>
         <h3>Nombres de votes : {{ $movie ->numVotes}}</h3>
+
     </div>
 
 </body>

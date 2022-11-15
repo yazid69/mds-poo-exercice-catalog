@@ -15,6 +15,13 @@
     <div class="container">
         <h2>Top 20 films</h2>
 
+        <a href="/movies?order_by=startYear&order=asc">
+            <h3>Newest Movies</h3>
+        </a>
+
+        <a href="/movies?order_by=averageRating&order=desc">
+            <h3>Best Rated Movies</h3>
+        </a>
         @foreach ($movies as $movie)
 
         <div>
@@ -24,13 +31,19 @@
                         <td>
                             <img class="list_image" src="{{$movie->poster }}" alt="{{ $movie->primaryTitle }}">
                         </td>
+                        <h2>
+                            <td>{{$movie->originalTitle}}</td>
+                            <td>{{ $movie->averageRating}}/10</td>
+                            <td>Date de sortie : {{$movie->startYear}}</td>
+                        </h2>
                     </tr>
                 </table>
             </a>
-            @endforeach
         </div>
+        @endforeach
 
-        {{$movies->links()}}
+
+        {{ $movies->appends(request()->query())->links() }}
     </div>
 </body>
 

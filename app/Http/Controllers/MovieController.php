@@ -8,11 +8,22 @@ use Illuminate\Pagination\Paginator;
 
 class MovieController extends Controller
 {
-    public function list()
+    public function list(Request $request)
     {
+
+        $order_by = $request->query('order_by');
+        $order = $request->query('order');
+
+        if ($order_by && $order) {
+            $movies = Movie::orderBy($order_by, $order)->paginate(20);
+        } else {
+            $movies = Movie::paginate(20);
+        }
+
+
         //$movie = Movie::limit()->get(20);
         Paginator::useBootstrap();
-        $movies = Movie::paginate(20);
+        // $movies = Movie::paginate(20);
         return view('movies', ['movies' => $movies]);
     }
 
