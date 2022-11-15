@@ -34,4 +34,11 @@ class MovieController extends Controller
 
         return view('movie', ['movie' => $movie]);
     }
+
+    public function random()
+    {
+        $movie = Movie::inRandomOrder()->first();
+
+        return view('/movie', ['movie' => $movie]);
+    }
 }

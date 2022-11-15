@@ -30,6 +30,8 @@
         <h1>{{ config('app.name') }}</h1>
         <h3><a href="{{ route('list.movies')}}"> Top 20 films</a></h3>
 
+        <h3><a href="{{route('random.movie')}}">Random Movies</a></h3>
+
 
         <div class="wrapper">
             @foreach ($movies as $movie)
